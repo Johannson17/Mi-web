@@ -1,0 +1,58 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+    {% load static %}
+
+    <header class="row bg-black text-light">
+        {% for info in infos %}
+            <div class="col-md-4">
+                <img src="{{info.image.url}}" alt="Federico Johannson" height="400" >
+            </div>
+
+            <div class="col-md-8 my-auto">
+            
+                <h1>I am <strong>{{info.title}}</strong></h1>
+                <h2>{{info.sub_title}}</h2>
+                <p>{{info.description}}</p>
+            </div> 
+        {% endfor %}
+    </header>
+
+    <div style="height: 50px; margin-top: 100px;"></div>
+
+    <header class="row bg-black text-light">
+        {% if degrees %}
+        <h1 style="text-align: center;">My education</h1>
+
+        <div style="height: 50px; margin-top: 50px;"></div>
+
+            {% for degree in degrees %}
+                <h2>{{degree.title}}</h2>
+                <h3>{{degree.sub_title}}</h3>
+                <p>{{degree.description}}</p>
+                <div class="col-md-4"><h5>From: {{degree.date1}}</h5></div>
+                <div class="col-md-8"><h5>To: {{degree.date}}</h5></div>
+                <div style="height: 50px; margin-top: 50px;"></div>
+            {% endfor %}
+        {% endif %}
+    </header>
+
+    <div style="height: 50px; margin-top: 50px;"></div>
+
+    <header class="row bg-black text-light">
+        {% if experiences %}
+        <h1 style="text-align: center;">My experience</h1>
+
+        <div style="height: 50px; margin-top: 50px;"></div>
+
+            {% for experience in experiences %}
+                <h2>{{experience.title}}</h2>
+                <h3>{{experience.puesto}}</h3>
+                <p>{{experience.description}}</p>
+                <div class="col-md-4"><h5>Desde: {{experience.date1}}</h5></div>
+                <div class="col-md-8"><h5>Hasta: {{experience.date}}</h5></div>
+            {% endfor %}
+        {% endif %}
+    </header>
+    
+{% endblock %}
